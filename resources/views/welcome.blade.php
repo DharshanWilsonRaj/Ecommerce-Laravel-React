@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ecommerce</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/166/166136.png">
     @viteReactRefresh
     @vite('resources/js/src/App.jsx')
 
