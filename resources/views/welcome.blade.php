@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ecommerce</title>
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/166/166136.png">
+    <script>
+        window.base_path = `{{ env('APP_URL') }}/api`;
+    </script>
     @viteReactRefresh
     @vite('resources/js/src/App.jsx')
 

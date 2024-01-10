@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.btn_container {
+    .btn {
+        font-size: inherit !important;
+        margin: 0 !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .btn-primary {
+        background: $primary-color;
+        border-color: $primary-color;
+        color: rgb(255, 255, 255);
+
+        &:hover {
+            background: $primary-hover-color !important;
+        }
+    }
+
+    .btn-secondary {
+        background: $secondary-color;
+        border-color: $secondary-color;
+
+        &:hover {
+            background: $secondary-hover-color !important;
+        }
+    }
+
+
+}

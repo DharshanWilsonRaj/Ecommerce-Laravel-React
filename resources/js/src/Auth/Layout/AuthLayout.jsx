@@ -1,12 +1,15 @@
 import Header from '@/src/Components/Header/Header'
 import React from 'react'
-const Home = () => {
+import { Outlet } from 'react-router-dom'
+
+const AuthLayout = () => {
     return (
         <div>
             <Header />
-
-            
+            <Outlet />
         </div>
+
     )
 }
-export default Home
+
+export default AuthLayout
