@@ -5,7 +5,9 @@ import InputElement from '@/src/Components/InputElement/InputElement';
 import Button from '@/src/Components/Button/Button';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setAuth } from '../Store/Auth/AuthSlice';
+import { setAccess, setAuth } from '../../Store/Auth/AuthSlice';
+import {  useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const initialState = {
     email: "",
@@ -17,6 +19,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const formSubmitRef = useRef();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (formSubmitRef.current) {
@@ -47,14 +50,54 @@ const Login = () => {
                 dispatch(setAuth({
                     login: true,
                     token: json.token
+
                 }))
+                if (json?.role_id === 1) {
+                    dispatch(setAccess(json?.role_id));
+                    navigate('/admin/dashboard');
+                }
+                else {
+                    navigate('/');
+                }
+                toast.success('Welcome to E-commerce', {
+                    toastId: 'register',
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                })
+            }
+            else {
+                toast.error(json?.error || json?.message || 'something went wrong', {
+                    toastId: 'register',
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                })
             }
 
         } catch (error) {
+            toast.error(error?.message || error?.message || 'something went wrong', {
+                toastId: 'register',
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            })
             console.log(error.message);
         }
         setLoading(false);
-    }, [dispatch]);
+    }, [dispatch, navigate]);
 
 
     const formik = useFormik({

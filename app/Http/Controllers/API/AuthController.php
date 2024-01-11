@@ -22,7 +22,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors(), 'success' => false], 400);
+            return response()->json(['message' => $validator->errors(), 'success' => false], 200);
         }
 
         $user = new User([
@@ -45,7 +45,7 @@ class AuthController extends Controller
             $token = $user->createToken('permission_token')->accessToken;
             return response()->json(['success' => true, 'token' => $token, 'role_id' => $user->role_id], 200);
         } else {
-            return response()->json(['success' => false, 'error' => 'Invalid credentials'], 401);
+            return response()->json(['success' => false, 'error' => 'Invalid credentials'], 200);
         }
     }
 

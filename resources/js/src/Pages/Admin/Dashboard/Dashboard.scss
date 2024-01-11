@@ -1,0 +1,9 @@
+.dashboard_container{
+    .chart_img{
+        filter: grayscale(65%);
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px black;
+        height: 350px !important;
+        width: 570px;
+    }
+}
