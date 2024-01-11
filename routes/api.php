@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,14 +32,8 @@ Route::controller(AuthController::class)->group(function () {
 })->middleware('auth:api');
 
 
-
-
-
-// // Authentication Routes
-// Route::middleware('auth:api')->group(function () {
-//     // Route::get('/user', function (Request $request) {
-//     //     return $request->user();
-//     // });
-
-//     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-// });
+// Authentication Routes
+Route::middleware('auth:api')->group(function () {
+    Route::get('/product-index', [ProductController::class, 'index'])->name('product-index');
+    Route::post('/product-store', [ProductController::class, 'store'])->name('product-store');
+});
