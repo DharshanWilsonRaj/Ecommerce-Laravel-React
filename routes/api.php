@@ -32,8 +32,11 @@ Route::controller(AuthController::class)->group(function () {
 })->middleware('auth:api');
 
 
-// Authentication Routes
+// Admin Routes
 Route::middleware('auth:api')->group(function () {
     Route::get('/product-index', [ProductController::class, 'index'])->name('product-index');
     Route::post('/product-store', [ProductController::class, 'store'])->name('product-store');
+    Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
+    Route::post('/product/update/{id}', [ProductController::class, 'productUpate'])->name('product-update');
+    Route::post('/product/delete/{id}', [ProductController::class, 'productDelete'])->name('product-delete');
 });

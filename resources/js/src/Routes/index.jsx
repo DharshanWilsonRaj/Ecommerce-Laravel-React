@@ -11,6 +11,7 @@ import Cart from '../Pages/Customers/Cart'
 import DashboardLayout from '../Pages/Admin/DashboardLayout/DashboardLayout'
 import Products from '../Pages/Admin/Products/Products'
 import AddProducts from '../Pages/Admin/Products/Add/AddProducts'
+import EditProduct from '../Pages/Admin/Products/Edit/EditProduct'
 
 // const DashboardLayout = lazy(() => import('../Pages/Admin/DashboardLayout/DashboardLayout'))
 
@@ -44,6 +45,7 @@ const AppRoutes = () => {
                     <Route path='products'>
                         <Route index element={<Products />} />
                         <Route path='add' element={<AddProducts />} />
+                        <Route path='edit/:id' element={<EditProduct />} />
                     </Route>
                     <Route path='orders' element={<h6>Orders</h6>} />
                     <Route path='profile' element={<h6>Profile</h6>} />
