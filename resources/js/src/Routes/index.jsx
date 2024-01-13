@@ -13,6 +13,7 @@ import Products from '../Pages/Admin/Products/Products'
 import AddProducts from '../Pages/Admin/Products/Add/AddProducts'
 import EditProduct from '../Pages/Admin/Products/Edit/EditProduct'
 import Profile from '../Pages/Admin/Profile/Profile'
+import Orders from '../Pages/Admin/Orders/Orders'
 
 // const DashboardLayout = lazy(() => import('../Pages/Admin/DashboardLayout/DashboardLayout'))
 
@@ -48,7 +49,7 @@ const AppRoutes = () => {
                         <Route path='add' element={<AddProducts />} />
                         <Route path='edit/:id' element={<EditProduct />} />
                     </Route>
-                    <Route path='orders' element={<h6>Orders</h6>} />
+                    <Route path='orders' element={<Orders />} />
                     <Route path='profile' element={<Profile />} />
                 </Route>
             </Route>
