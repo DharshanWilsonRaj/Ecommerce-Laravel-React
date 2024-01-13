@@ -27,7 +27,7 @@ const Header = () => {
         })
 
         if (result.isDismissed) return;
-    
+
 
         try {
             if (logoutRef.current) {
@@ -59,12 +59,12 @@ const Header = () => {
 
     return (
         <div className='header_container'>
-            <div className=" d-flex text-white align-items-center p-3 px-5 " >
-                <h3 className=" fs-3 fw-bold">Ecommerce</h3>
+            <div className=" d-flex  align-items-center p-3 px-5 " >
+                <NavLink to={"/"} className={'logo_heading'}> <h3 className="logo_heading fs-3 fw-bold">Ecommerce</h3></NavLink>
                 <div className="ms-auto ">
                     <ul className="d-flex gap-3 navbar ">
-
                         <li><NavLink to={"/"} className={`fw-bold ${location.pathname === "/" && 'active'}`}>Home</NavLink> </li>
+                        <li><NavLink to={"/products"} className={`fw-bold ${location.pathname === "/products" && 'active'}`}>Product</NavLink> </li>
                         <li><NavLink to={"/cart"} className={`fw-bold ${location.pathname === "/cart" && 'active'}`}>Cart</NavLink> </li>
 
                         {

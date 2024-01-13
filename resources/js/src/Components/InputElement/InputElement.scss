@@ -7,6 +7,7 @@
     .inputs {
         background: transparent;
         font-size: 16px;
+        border: 1px solid #147BFF !important;
 
         &::placeholder {
             color: #a3a3a3;
@@ -24,7 +25,8 @@
             -webkit-box-shadow: 0 0 0 30px white inset !important;
         }
     }
-    .error_msg{
+
+    .error_msg {
         font-size: 13px;
     }
 }

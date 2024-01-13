@@ -22,6 +22,18 @@
         }
     }
 
+    .btn-orange {
+        background: $orange-bg-color;
+        border-color:$orange-bg-color;
+        color: rgb(65, 60, 60);
+
+        &:hover {
+            background: rgb(3, 145, 170) !important;
+            // color: rgb(0, 0, 0);
+            border: 1px solid transparent;
+        }
+    }
+
     .btn-secondary {
         background: $secondary-color;
         border-color: $secondary-color;
