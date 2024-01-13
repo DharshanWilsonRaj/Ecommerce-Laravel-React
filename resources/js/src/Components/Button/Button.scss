@@ -16,7 +16,9 @@
         color: rgb(255, 255, 255);
 
         &:hover {
-            background: $primary-hover-color !important;
+            background: rgb(3, 145, 170) !important;
+            // color: rgb(0, 0, 0);
+            border: 1px solid transparent;
         }
     }
 

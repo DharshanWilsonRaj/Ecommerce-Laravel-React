@@ -2,12 +2,13 @@
 
 
 .sidebar_container {
-    background-color: $primary-color;
+    background-color: white;
     min-height: 100vh;
     width: 15%;
-    padding: 20px 10px;
-
-
+    // padding: 20px 10px;
+    margin-top: 0% !important;
+    color: #000 !important;
+ 
     ul {
 
         display: flex;
@@ -18,8 +19,8 @@
 
         .nav-link {
             list-style: none;
-            background-color: #30294521;
-            color: white;
+            background-color: #c9c9c921;
+            color: #000 !important;
             padding: 10px;
             cursor: pointer;
             border-radius: 5px;
@@ -28,7 +29,7 @@
             &:hover,
             &.active {
                 background-color: $primary-hover-color;
-
+                color: #ffffff !important;
             }
 
         }

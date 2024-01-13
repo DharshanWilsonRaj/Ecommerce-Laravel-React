@@ -16,6 +16,8 @@ class ProductController extends Controller
         if ($user->role_id != 1) {
             return response()->json(['message' => 'Unauthenticate request', 'success' => false], 200);
         };
+        // $products = \DB::table('products')->get();
+        // return DataTables::of($products)->make(true);
         $products = Product::all();
         return response()->json(['success' => true, 'data' => $products,], 200);
     }

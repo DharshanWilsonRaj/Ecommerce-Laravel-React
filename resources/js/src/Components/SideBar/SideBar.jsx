@@ -58,7 +58,7 @@ const SideBar = () => {
 
     return (
         <div className='sidebar_container '>
-            <ul className='my-2' >
+            <ul >
                 <NavLink to={'/admin/dashboard'} className={`nav-link ${location.pathname === '/admin/dashboard' ? 'active' : ''}`} >
                     <span className='mx-1 icon'><FontAwesomeIcon icon={faChartLine} /></span>Dashboard
                 </NavLink>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AdminController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
@@ -34,9 +35,17 @@ Route::controller(AuthController::class)->group(function () {
 
 // Admin Routes
 Route::middleware('auth:api')->group(function () {
-    Route::get('/product-index', [ProductController::class, 'index'])->name('product-index');
-    Route::post('/product-store', [ProductController::class, 'store'])->name('product-store');
-    Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
-    Route::post('/product/update/{id}', [ProductController::class, 'productUpate'])->name('product-update');
-    Route::post('/product/delete/{id}', [ProductController::class, 'productDelete'])->name('product-delete');
+
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/product-index', 'index');
+        Route::post('/product-store', 'store');
+        Route::get('/product/edit/{id}', 'productEdit');
+        Route::post('/product/update/{id}', 'productUpate');
+        Route::post('/product/delete/{id}', 'productDelete');
+    });
+
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin-profile', 'profileView');
+        Route::post('/admin-profile/update', 'profileUpdate');
+    });
 });

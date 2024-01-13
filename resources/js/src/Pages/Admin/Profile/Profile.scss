@@ -1,0 +1,21 @@
+.admin_profile_container {
+    .profile_image_container {
+        position: relative;
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .image_picker_label {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            cursor: pointer
+        }
+
+        .image_picker {
+            display: none;
+        }
+    }
+}

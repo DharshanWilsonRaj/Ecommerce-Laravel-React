@@ -24,7 +24,6 @@ const AddProducts = () => {
     const  navigate= useNavigate();
 
     const { token } = useSelector(state => state.auth)
-
     useEffect(() => {
         if (productStoreRef.current) {
             productStoreRef.current.abort();

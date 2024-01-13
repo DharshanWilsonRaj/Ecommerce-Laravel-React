@@ -1,2 +1,7 @@
 @import './variables.scss';
 
+body {
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
+}
