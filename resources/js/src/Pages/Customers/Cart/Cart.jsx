@@ -9,6 +9,7 @@ import Button from '@/src/Components/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
 const intialcost = {
     subtotal: 0,
@@ -170,14 +171,67 @@ const Cart = () => {
 
 
 
-    const handleCheckOut = useCallback(async () => {
+
+    const handleCheckOut = useCallback(async (e) => {
         if (isLoggedIn) {
-            navigate('/checkout')
+            e.preventDefault();
+            var options = {
+                key: 'rzp_test_uNiMGGlGslFSZY',
+                key_secret: "NoBK2Y5BL77iBktlmq9xbCHa",
+                currency: "INR",
+                amount: totalCost.totalCost * 100,
+                name: "Rayzor pay",
+                description: "for testing purpose",
+                handler: async function (response) {
+
+                    try {
+                        const apiResponse = await fetch(`${window.base_path}/razorpay`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                                'Authorization': `Bearer ${token}`
+
+                            },
+                            body: JSON.stringify({
+                                razorpay_payment_id: response.razorpay_payment_id,
+                            }),
+                        });
+                        const data = await apiResponse.json();
+                        if (data?.success) {
+                            toast.success(data?.message || "Payment Success", {
+                                toastId: 'product_id',
+                                position: 'top-right',
+                                autoClose: 3000,
+                                hideProgressBar: true,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined
+                            })
+                            navigate('/');
+                        }
+
+
+                    } catch (error) {
+                        console.error('Error making API call:', error);
+                    }
+                },
+                // notes: {
+                //     email: "Razorpay Corporate office",
+                // },
+                theme: {
+                    color: "#147BFF"
+                }
+            };
+            var pay = new window.Razorpay(options);
+            pay.open();
         }
+
         else {
             navigate('/login')
         }
-    }, [isLoggedIn, navigate]);
+    }, [isLoggedIn, navigate, token, totalCost.totalCost]);
 
 
     return (
@@ -210,7 +264,7 @@ const Cart = () => {
                                     </tr>
                                 )}
                                 {
-                                    !pageData?.length && <tr ><td colSpan={6} className='text-center'> No data</td></tr>
+                                    !pageData?.length && <tr ><td colSpan={4} className='text-center'> No data</td></tr>
                                 }
                             </tbody>
                         </table>
@@ -227,7 +281,7 @@ const Cart = () => {
                             </div>
                             <hr className="my-2 text-secondary" />
                             <div className="d-flex mt-4">
-                                <p>Sipping chart</p>
+                                <p>Shipping cost</p>
                                 <p className="ms-auto" id="shippingCost">${totalCost.shippingcost}</p>
                             </div>
                             <hr className="my-2 text-secondary" />
@@ -235,7 +289,9 @@ const Cart = () => {
                                 <p>Total </p>
                                 <p className="ms-auto fw-bold " id="totalCost">${totalCost.totalCost}</p>
                             </div>
-                            <Button className="w-100 my-2" onClick={handleCheckOut}>Proceed to checkout</Button>
+                            <form action="" onSubmit={handleCheckOut}>
+                                <Button className="w-100 my-2">Proceed to checkout</Button>
+                            </form>
                         </div>
                     </div>
                 }

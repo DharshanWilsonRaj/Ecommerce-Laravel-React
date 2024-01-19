@@ -59,7 +59,7 @@ const Header = () => {
         <div className='header_container'>
             <div className=" d-flex container  align-items-center py-3 " >
                 <NavLink to={"/"} className={'logo_heading'}> <h3 className="logo_heading fs-3 fw-bold">Ecommerce</h3></NavLink>
-                <div className="d-flex ms-auto ">
+                <div className="ms-auto ">
                     <ul className="d-flex navbar gap-3 ">
                         <li><NavLink to={"/"} className={`fw-bold ${location.pathname === "/" && 'active'}`}>Home</NavLink> </li>
                         <li><NavLink to={"/products"} className={`fw-bold ${location.pathname === "/products" && 'active'}`}>Product</NavLink> </li>
@@ -68,7 +68,7 @@ const Header = () => {
                         {
                             isLoggedIn ? <>
                                 <li><NavLink to={'/profile'} className={`fw-bold ${location.pathname === "/profile" && 'active'}`}>Profile</NavLink> </li>
-                                <li><NavLink to={'/checkout'} className={`fw-bold ${location.pathname === "/checkout" && 'active'}`}>Checkout</NavLink> </li>
+                                <li><NavLink to={'/orders'} className={`fw-bold ${location.pathname === "/orders" && 'active'}`}>Orders</NavLink> </li>
                                 <li>
                                     <span className='menu_option_item text-white fs-5' onClick={handleLogout} style={{ cursor: "pointer" }}>
                                         <FontAwesomeIcon icon={faArrowRightFromBracket} className='option_icon' />

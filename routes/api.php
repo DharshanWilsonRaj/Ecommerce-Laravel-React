@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AdminController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\RazorpayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -61,4 +62,9 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('/remove-cart-item/{id}', 'removeCart')->middleware('auth:api');
 
     Route::get('/customer-profile', 'customerProfile')->middleware('auth.api');
+});
+
+
+Route::controller(RazorpayController::class)->group(function () {
+    Route::post('/razorpay', 'razorpay')->middleware('auth:api');
 });

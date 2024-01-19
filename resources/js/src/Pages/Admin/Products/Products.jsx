@@ -136,7 +136,7 @@ const Products = () => {
 
 
     const imageBodyTemplate = (product) => {
-        return <img src={`http://localhost:8000${product.image}`} alt={product.image} className="w-2rem shadow rounded " style={{ width: '50px' }} />;
+        return <img src={`http://localhost:8000${product.image}`} alt={product.image} className="w-2rem  rounded " style={{ width: '50px' }} />;
     };
     // /product/delete/{id}
     const actionTemplate = (product) => {

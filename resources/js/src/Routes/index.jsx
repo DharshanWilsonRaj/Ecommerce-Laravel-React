@@ -18,7 +18,7 @@ import Home from '../Pages/Customers/Home/Home'
 import Cart from '../Pages/Customers/Cart/Cart'
 import ProductsPage from '../Pages/Customers/Products/Products'
 import CustomerProfile from '../Pages/Customers/CustomerProfile/CustomerProfile'
-import Checkout from '../Pages/Customers/Checkout/Checkout'
+import CustomerOrders from '../Pages/Customers/Orders/Orders'
 
 // const DashboardLayout = lazy(() => import('../Pages/Admin/DashboardLayout/DashboardLayout'))
 
@@ -66,7 +66,7 @@ const AppRoutes = () => {
             <Route path='/' element={<Protected access={isLoggedIn && role_id === 2} fallback='/' />}>
                 <Route element={<AuthLayout />}>
                     <Route path='profile' element={<CustomerProfile />} />
-                    <Route path='checkout' element={<Checkout />} />
+                    <Route path='orders' element={<CustomerOrders />} />
                 </Route>
             </Route>
             {/* No page */}
