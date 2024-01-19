@@ -13,7 +13,7 @@ const Header = () => {
     const location = useLocation();
     const logoutRef = useRef();
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleLogout = useCallback(async () => {
         const result = await Swal.fire({
@@ -27,8 +27,6 @@ const Header = () => {
         })
 
         if (result.isDismissed) return;
-
-
         try {
             if (logoutRef.current) {
                 logoutRef.current.abort();
@@ -59,10 +57,10 @@ const Header = () => {
 
     return (
         <div className='header_container'>
-            <div className=" d-flex  align-items-center p-3 px-5 " >
+            <div className=" d-flex container  align-items-center py-3 " >
                 <NavLink to={"/"} className={'logo_heading'}> <h3 className="logo_heading fs-3 fw-bold">Ecommerce</h3></NavLink>
-                <div className="ms-auto ">
-                    <ul className="d-flex gap-3 navbar ">
+                <div className="d-flex ms-auto ">
+                    <ul className="d-flex navbar gap-3 ">
                         <li><NavLink to={"/"} className={`fw-bold ${location.pathname === "/" && 'active'}`}>Home</NavLink> </li>
                         <li><NavLink to={"/products"} className={`fw-bold ${location.pathname === "/products" && 'active'}`}>Product</NavLink> </li>
                         <li><NavLink to={"/cart"} className={`fw-bold ${location.pathname === "/cart" && 'active'}`}>Cart</NavLink> </li>
@@ -70,8 +68,9 @@ const Header = () => {
                         {
                             isLoggedIn ? <>
                                 <li><NavLink to={'/profile'} className={`fw-bold ${location.pathname === "/profile" && 'active'}`}>Profile</NavLink> </li>
+                                <li><NavLink to={'/checkout'} className={`fw-bold ${location.pathname === "/checkout" && 'active'}`}>Checkout</NavLink> </li>
                                 <li>
-                                    <span className='menu_option_item' onClick={handleLogout} style={{ cursor: "pointer" }}>
+                                    <span className='menu_option_item text-white fs-5' onClick={handleLogout} style={{ cursor: "pointer" }}>
                                         <FontAwesomeIcon icon={faArrowRightFromBracket} className='option_icon' />
                                     </span>
                                 </li>

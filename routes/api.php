@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AdminController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CustomerController;
 use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -48,4 +49,16 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/admin-profile', 'profileView');
         Route::post('/admin-profile/update', 'profileUpdate');
     });
+});
+
+
+// Customer_controller 
+Route::controller(CustomerController::class)->group(function () {
+    Route::get('/products-list', 'productList');
+    Route::post('/addCart/{id}', 'addCart')->middleware('auth:api');
+    Route::get('/viewCart', 'viewCart')->middleware('auth:api');
+    Route::post('/updateCart/{type}/{id}', 'updateCart')->middleware('auth:api');
+    Route::post('/remove-cart-item/{id}', 'removeCart')->middleware('auth:api');
+
+    Route::get('/customer-profile', 'customerProfile')->middleware('auth.api');
 });

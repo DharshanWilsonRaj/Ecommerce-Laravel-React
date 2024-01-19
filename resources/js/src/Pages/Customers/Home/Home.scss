@@ -1,0 +1,30 @@
+.home_page_container{
+    .hero_section{
+        .heading{
+
+            font-size:34px;
+            font-weight: 400;
+            font-family: Arial, Helvetica, sans-serif;
+            p{
+                margin-bottom: 0px !important;
+                text-transform: uppercase;
+            }
+            .offertext{
+                text-transform: capitalize;
+                color: royalblue;
+                font-weight: 300;
+            
+            }
+            .strong_text{
+                font-size: 60px;
+                font-weight: 900;
+                font-family: serif;
+            }
+            .small_text{
+                font-size: 18px;
+                font-weight: 200;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

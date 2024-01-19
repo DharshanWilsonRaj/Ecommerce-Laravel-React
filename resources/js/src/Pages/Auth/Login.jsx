@@ -5,8 +5,8 @@ import InputElement from '@/src/Components/InputElement/InputElement';
 import Button from '@/src/Components/Button/Button';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setAccess, setAuth } from '../../Store/Auth/AuthSlice';
-import {  useNavigate } from 'react-router-dom';
+import {  setAuth } from '../../Store/Auth/AuthSlice';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const initialState = {
@@ -49,11 +49,11 @@ const Login = () => {
             if (json.success) {
                 dispatch(setAuth({
                     login: true,
-                    token: json.token
+                    token: json.token,
+                    role_id: json?.role_id
 
                 }))
                 if (json?.role_id === 1) {
-                    dispatch(setAccess(json?.role_id));
                     navigate('/admin/dashboard');
                 }
                 else {

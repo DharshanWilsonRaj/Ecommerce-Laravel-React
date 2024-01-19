@@ -13,11 +13,9 @@ const AuthSlice = createSlice({
         setAuth(state, { payload }) {
             state.isLoggedIn = payload.login;
             state.token = payload.token;
-            state.role_id = payload;
+            state.role_id = payload.role_id;
         },
-        setAccess(state, { payload }) {
-            state.role_id = payload;
-        }
+    
     }
 })
 

@@ -1,0 +1,60 @@
+.products_page_container {
+    .product_list_container {
+        .card {
+            border: none !important;
+
+            .image_container {
+                // background-color: #f1f1f19a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    border: none !important;
+                    border-radius: 5px !important;
+                    width: 180px;
+                }
+            }
+
+            .card-body {
+                padding: 0px !important;
+                margin-top: 10px;
+
+                .card-title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .rating_star {
+                    text-align: end;
+                    font-size: 16px;
+
+                    svg,
+                    path {
+                        color: #f36c5bee;
+                    }
+
+                    // .empty-star {
+
+                    //     svg,
+                    //     path {
+                    //         color: #ffffffee !important;
+                          
+                    //     }
+
+                    // }
+                }
+
+                .card-text {
+                    color: rgb(92, 91, 91);
+                    font-weight: 500;
+                }
+            }
+
+
+        }
+
+
+    }
+}
