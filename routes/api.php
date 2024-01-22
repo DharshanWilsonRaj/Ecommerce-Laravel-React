@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AdminController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\RazorpayController;
 use Illuminate\Http\Request;
@@ -38,6 +39,11 @@ Route::controller(AuthController::class)->group(function () {
 // Admin Routes
 Route::middleware('auth:api')->group(function () {
 
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin-profile', 'profileView');
+        Route::post('/admin-profile/update', 'profileUpdate');
+    });
+
     Route::controller(ProductController::class)->group(function () {
         Route::get('/product-index', 'index');
         Route::post('/product-store', 'store');
@@ -46,9 +52,8 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/product/delete/{id}', 'productDelete');
     });
 
-    Route::controller(AdminController::class)->group(function () {
-        Route::get('/admin-profile', 'profileView');
-        Route::post('/admin-profile/update', 'profileUpdate');
+    Route::controller(OrderController::class)->group(function () {
+        Route::get('/order-index', 'index');
     });
 });
 

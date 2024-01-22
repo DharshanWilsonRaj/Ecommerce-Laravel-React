@@ -60,22 +60,22 @@ const SideBar = () => {
         <div className='sidebar_container '>
             <ul >
                 <NavLink to={'/admin/dashboard'} className={`nav-link ${location.pathname === '/admin/dashboard' ? 'active' : ''}`} >
-                    <span className='mx-1 icon'><FontAwesomeIcon icon={faChartLine} /></span>Dashboard
+                    <span className='mx-2 icon'><FontAwesomeIcon icon={faChartLine} /></span>Dashboard
                     <span className='edge'></span>
                 </NavLink>
 
                 <NavLink to={'/admin/products'} className={`nav-link ${location.pathname === '/admin/products' ? 'active' : ''}`}  >
-                    <span className='mx-1 icon'><FontAwesomeIcon icon={faStore} /></span>Products
+                    <span className='mx-2 icon'><FontAwesomeIcon icon={faStore} /></span>Products
                 </NavLink>
 
                 <NavLink to={'/admin/orders'} className={`nav-link ${location.pathname === '/admin/orders' ? 'active' : ''}`} >
-                    <span className='mx-1 icon'><FontAwesomeIcon icon={faTruckFast} /></span>Orders
+                    <span className='mx-2 icon'><FontAwesomeIcon icon={faTruckFast} /></span>Orders
                 </NavLink>
 
                 <NavLink to={'/admin/profile'} className={`nav-link ${location.pathname === '/admin/profile' ? 'active' : ''}`} >
-                    <span className='mx-1 icon'><FontAwesomeIcon icon={faUserTie} /></span>Profile</NavLink>
+                    <span className='mx-2 icon'><FontAwesomeIcon icon={faUserTie} /></span>Profile</NavLink>
                 <span className='nav-link ' onClick={handleLogout} style={{ cursor: "pointer" }}>
-                    <span className=' mx-1 icon'> <FontAwesomeIcon icon={faArrowRightFromBracket}  /></span>  Logout
+                    <span className=' mx-2 icon'> <FontAwesomeIcon icon={faArrowRightFromBracket}  /></span>  Logout
                 </span>
             </ul>
         </div >

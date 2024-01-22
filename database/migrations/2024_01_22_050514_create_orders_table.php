@@ -11,19 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_id');
             $table->integer('product_id');
-            // $table->string('product_name');
-            $table->string('quantity');
-            $table->string('amount');
-            $table->string('currency');
             $table->integer('customer_id');
-            // $table->string('customer_name');
-            // $table->string('customer_email');
-            $table->string('payment_status');
-            $table->string('payment_method');
+            $table->integer('amount');
+            $table->integer('quantity');
+            $table->integer('status')->comment('1->delivered,2->shipped,3->cancelled,4->new');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('orders');
     }
 };

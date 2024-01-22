@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './Dashboard.scss';
-import CircleChart from '@/src/Images/circleChart.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowTrendUp, faClipboardList, faStore, faTruckFast, faUsers } from '@fortawesome/free-solid-svg-icons'
 const DashBoard = () => {
